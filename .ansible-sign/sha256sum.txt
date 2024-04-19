@@ -1,0 +1,3 @@
+ecb9b67bd3235537d082ba08ea3837703b2df27eb50f7be1fbcd473c0f9896ac  MANIFEST.in
+4bbbd57027ae76bfc15f9db9c110691e93b880cedf43050fec585b571cbdf68e  inventory
+6dd06ab1e99fc79be7bc125c2a8f1651000e674d3a78995fa2ca06ef3042d6c0  playbooks/ping.yml
