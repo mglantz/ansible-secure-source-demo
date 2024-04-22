@@ -58,6 +58,9 @@ exclude .gitignore
 recursive-exclude .git *
 ```
 5. User runs ```ansible-sign project gpg-sign .``` inside of the project directory, which causes ansible-sign to read the MANIFEST.in file and generate the ```.ansible-sign/sha256sum.txt```  and ```.ansible-sign/sha256sum.txt.sig```
-Read more here: https://docs.ansible.com/automation-controller/latest/html/userguide/project-sign.html 
 
-6. User does a git add on any files changed, including the two files in .ansible-sign/ the commits and pushes the code to the repository.
+6. User does a git add on any files changed, including the two files in .ansible-sign/, then commits and pushes the code to the repository.
+
+7. Validation happens automatically if configured in AAP.
+
+8. Read more here: [https://docs.ansible.com/automation-controller/latest/html/userguide/project-sign.html](https://docs.ansible.com/automation-controller/latest/html/userguide/project-sign.html)
