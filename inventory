@@ -1,1 +1,1 @@
-testsystem2.sudo.net
+localhost ansible_connection=local
