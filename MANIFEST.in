@@ -3,7 +3,7 @@ recursive-include playbooks *.yml
 recursive-include playbooks *.yaml
 include *.yml
 include *.yaml
-include MANIFEST.in
+include MANIFEST.in README.md
 exclude .ansible-lint
 exclude .gitignore
 recursive-exclude .git *
