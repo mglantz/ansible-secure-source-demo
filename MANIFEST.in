@@ -6,7 +6,7 @@ include *.yaml
 include MANIFEST.in
 include README.md
 include secure-org_pubkey.asc
-include ansible-sign.png
+include images/*.png
 exclude .ansible-lint
 exclude .gitignore
 recursive-exclude .git *
