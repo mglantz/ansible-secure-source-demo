@@ -24,5 +24,40 @@ To demonstrate Ansible Automation Platforms source validation features:
 ![Review logs](images/6_validation.png)
 
 ## How ansible-sign works with Ansible Automation Platform
+![How ansible-sign works](images/ansible-sign.png)
+
+The workflow for ansible-sign is as follows:
+1. User create a new gpg keypair and exports the public key, for use in AAP. In our example below saved as secure-org_pubkey.asc
+```
+$ gpg --generate-key
+<Output omitted>
+$ gpg --list-keys
+[keyboxd]
+---------
+pub   ed25519 2024-04-19 [SC] [expires: 2027-04-19]
+      A0E1F2B2907EC4615A105C268841AA232A1E5C35
+uid           [ultimate] Secure Org <secure-org@localhost.localdomain>
+sub   cv25519 2024-04-19 [E] [expires: 2027-04-19]
+
+$ gpg --export --armour A0E1F2B2907EC4615A105C268841AA232A1E5C35 >secure-org_pubkey.asc
+```
+2. User checks out a git repository and potentially creates files to protect (inventory, playbooks, etc)
+3. User creates the MANIFEST.in file and the .ansible-sign directory in the root of the project directory. MANIFEST.in file needs to include and include or an exclude statement covering all files. Example for our demo repostitory is:
+```
+include inventory
+recursive-include playbooks *.yml
+recursive-include playbooks *.yaml
+include *.yml
+include *.yaml
+include MANIFEST.in
+include README.md
+include secure-org_pubkey.asc
+recursive-include images *.png
+exclude .ansible-lint
+exclude .gitignore
+recursive-exclude .git *
+```
+5. User runs ```ansible-sign project gpg-sign .``` inside of the project directory, which causes ansible-sign to read the MANIFEST.in file and generate the ```.ansible-sign/sha256sum.txt```  and ```.ansible-sign/sha256sum.txt.sig```
 Read more here: https://docs.ansible.com/automation-controller/latest/html/userguide/project-sign.html 
-![How ansible-sign works](ansible-sign.png)
+
+6. User does a git add on any files changed, including the two files in .ansible-sign/ the commits and pushes the code to the repository.
