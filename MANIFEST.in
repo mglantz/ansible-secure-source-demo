@@ -1,5 +1,6 @@
 include inventory
 recursive-include *.yml
+include MANIFEST.in
 exclude .ansible-lint
 exclude .gitignore
 recursive-exclude .git *
