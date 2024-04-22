@@ -1,0 +1,2 @@
+include inventory
+recursive-include playbooks *.yml
