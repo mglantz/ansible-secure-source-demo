@@ -1,2 +1,7 @@
 include inventory
-recursive-include playbooks *.yml
+recursive-include *.yml
+exclude .ansible-lint
+exclude .gitignore
+recursive-exclude .git *
+recursive-exclude constructed-inventory *
+recursive-exclude inventory *
