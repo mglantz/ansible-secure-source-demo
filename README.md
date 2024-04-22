@@ -42,7 +42,7 @@ sub   cv25519 2024-04-19 [E] [expires: 2027-04-19]
 $ gpg --export --armour A0E1F2B2907EC4615A105C268841AA232A1E5C35 >secure-org_pubkey.asc
 ```
 2. User checks out a git repository and potentially creates files to protect (inventory, playbooks, etc)
-3. User creates the MANIFEST.in file and the .ansible-sign directory in the root of the project directory. MANIFEST.in file needs to include and include or an exclude statement covering all files. Example for our demo repostitory is:
+3. User creates the MANIFEST.in file and the .ansible-sign directory in the root of the project directory. MANIFEST.in file needs to have an include OR an exclude statement covering all files. Example for our demo repostitory is:
 ```
 include inventory
 recursive-include playbooks *.yml
