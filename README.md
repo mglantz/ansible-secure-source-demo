@@ -15,7 +15,14 @@ To demonstrate Ansible Automation Platforms source validation features:
 5. Create a job template using the playbooks/ping.yml playbook connected to the inventory you just created.
 [Create a job template](images/4_jobtemplate.png)
 
-6. Run the job template. Show how the related playbook (ping.yml) now is cryptographically validated as the project is refreshed, along side with the inventory source you run against.
+6. Run the job template.
+
+7. Show how the related playbook (ping.yml) now is cryptographically validated as the project is refreshed, along side with the inventory source you run against. Review run jobs to show the Source Control Update triggered by your job template run.
+![Review jobs](images/5_jobs.png)
+
+8. Show the validation which happened during the Source Control Update of your project.
+![Review logs](images/6_validation.png)
+
 
 ## How ansible-sign works with Ansible Automation Platform
 Read more here: https://docs.ansible.com/automation-controller/latest/html/userguide/project-sign.html 
