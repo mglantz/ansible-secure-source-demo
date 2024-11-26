@@ -1,1 +1,1 @@
-localhost ansible_connection=local
+stuff.localdomain ansible_connection=local
